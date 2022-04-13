@@ -1,15 +1,18 @@
+import Container from '../Container';
+
 import s from "./Footer.module.css";
+
 
 export const Footer = () => {
   return (
-    <footer class={s.root}>
-      <div class={s.container}>
-        <div class={s.footerWrap}>
+    <footer className={s.root}>
+      <Container>
+        <div className={s.footerWrap}>
           Coded with
-          <span class={s.heart}></span>
+          <span className={s.heart}></span>
           by You
         </div>
-      </div>
+      </Container>
     </footer>
   );
 };
