@@ -1,0 +1,12 @@
+.italic {
+	font-style: italic;
+}
+
+.strong {
+	font-weight: bold;
+}
+
+.disabled {
+	opacity: .6;
+	cursor: not-allowed;
+}
