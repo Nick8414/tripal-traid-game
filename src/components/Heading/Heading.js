@@ -12,7 +12,7 @@ const Heading = ({ children, level = 1, className }) => {
 }
 
 Heading.propTypes = {
-	level: PropTypes.oneOf([ 1, 2, 3, 4, 5]).isRequired,
+	level: PropTypes.oneOf([ 1, 2, 3, 4, 5]),
 	className: PropTypes.string,
 	children: PropTypes.node,
 }

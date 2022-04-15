@@ -6,29 +6,11 @@ import cn from 'classnames';
 import s from './Text.module.css';
 
 const Text = ({ element, className, strong, italic, disabled, children }) => {
-	let option = "";
-	const options = {
-		italic: <i>{children}</i>,
-		strong: <strong>{children}</strong>,
-		italicStrong: <strong><i>{children}</i></strong>,
-		default: children
-	}
+	console.log(s);
 	
-	if (strong && italic) {
-		option = 'italicStrong'
-	} else if (strong) {
-		option = 'strong'
-	} else if (italic) {
-		option = 'italic'
-	} else {
-		option = 'default'
-	}
-	
-	const childElement = options[option]
-
 	return React.createElement(element, {
-		className: cn(s.root, className, {[s.disabled]: disabled}),
-	}, childElement);
+		className: cn(s.root, className, {[s.disabled]: disabled, [s.italic]: italic, [s.strong]: strong}),// ??
+	}, children);
 }
 
 Text.defaultProps = {
@@ -40,7 +22,7 @@ Text.defaultProps = {
 };
 
 Text.propTypes = {
-	element: PropTypes.oneOf( ['div', 'p', 'span']).isRequired,
+	element: PropTypes.oneOf( ['div', 'p', 'span']),
 	className: PropTypes.string,
 	strong: PropTypes.bool,
 	italic: PropTypes.bool,

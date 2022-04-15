@@ -12,9 +12,10 @@ const App = () => {
     <>
       <Header />
       <Slider />
-      <div>
-        <Heading className="center-text" level={3}>This is Heading</Heading>
-        <Container className="app-container">
+      <div className="app-container">
+        <Container>
+          <Heading className="center-text" level={1}>Marvel Cards</Heading>
+          <Heading className="center-text" level={2}>Collect your best five</Heading>
           <Text strong>This is a strong text.</Text>
           <Text italic disabled>
             This is an italic and disabled text.
