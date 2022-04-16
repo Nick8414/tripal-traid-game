@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import s from './Text.module.css';
+import s from './Text.module.scss';
 
 const Text = ({ element, className, strong, italic, disabled, children }) => {
 	console.log(s);

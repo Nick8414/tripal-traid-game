@@ -1,14 +1,12 @@
 import Container from '../Container';
 
-import s from './Header.module.css';
+import s from './Header.module.scss';
 
 import logo from '../../assets/logo.png';
 
 const MENU = ['Menu 1', 'Menu 2', 'Menu 3', 'Menu 4'];
 
 export const Header = () => {
-	console.log(s);
-	
 	return (
 		<header className={s.root}>
 			<div className={s.header}>

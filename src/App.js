@@ -5,27 +5,32 @@ import Heading from "./components/Heading/Heading";
 import Container from "./components/Container";
 import Text from "./components/Text";
 
-import './App.css';
+import s from './App.module.scss';
 
 const App = () => {
   return (
     <>
       <Header />
       <Slider />
-      <div className="app-container">
+      <section className={s.cardSection}>
         <Container>
-          <Heading className="center-text" level={1}>Marvel Cards</Heading>
-          <Heading className="center-text" level={2}>Collect your best five</Heading>
-          <Text strong>This is a strong text.</Text>
-          <Text italic disabled>
-            This is an italic and disabled text.
-          </Text>
-          <Text className="red-text" element="p" italic strong>
-            This is an italic and strong text.
-          </Text>
-          <Text element="span">This is a default text.</Text>
+          <div className={s.cardTitle}>
+            <Heading 
+              level={1} 
+              backLine
+            >Marvel Cards</Heading>
+            <Heading 
+               level={2}
+            >Collect your best five</Heading>
+          </div>
+          <div className={s.cardWrap}>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+          </div>
         </Container>
-      </div>
+      </section>
       <Footer />
     </>
   );

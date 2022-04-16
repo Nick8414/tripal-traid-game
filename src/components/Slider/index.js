@@ -1,7 +1,7 @@
 import Container from "../Container";
 import Heading from '../Heading';
 
-import s from "./Slider.module.css";
+import s from "./Slider.module.scss";
 
 export const Slider = () => {
   return (
@@ -14,8 +14,6 @@ export const Slider = () => {
           <Heading level={2} className={s.subheader}>
             Wow.Wow.Wow
           </Heading>
-          {/* <h1 className={s.header}>Wow</h1>
-          <h2 className={s.subheader}>Wow.Wow.Wow</h2> */}
           <div className={s.call}>
             <button className={s.button}>Wow</button>
           </div>
