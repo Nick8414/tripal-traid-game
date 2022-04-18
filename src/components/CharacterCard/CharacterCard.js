@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 
 import Heading from '../Heading';
 import Text from '../Text';
@@ -8,6 +9,10 @@ import s from "./CharacterCard.module.scss";
 import {ReactComponent as Like} from './assets/heart.svg';
 
 export default function CharacterCard({ id, name, src, humanName, description }) {
+  const [active, setActive] = useState(false);
+  const handleClick = () => {
+    setActive((prevState) => !prevState);
+  }
   return (
     <div className={s.root}>
       <img
@@ -26,7 +31,9 @@ export default function CharacterCard({ id, name, src, humanName, description })
           {description}
         </Text>
         <div className={s.cardMeta}>
-          <div className={s.like}>
+          <div  
+            className={cn(s.like, {[s.active]: active})}  
+            onClick={handleClick}>
 						<Like />
 					</div>
           <div className={s.readBio}>
