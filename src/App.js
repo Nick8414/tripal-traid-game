@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { Header } from "./components/Header";
 import { Slider } from "./components/Slider";
 import { Footer } from "./components/Footer";
@@ -6,15 +6,18 @@ import Heading from "./components/Heading/Heading";
 import Container from "./components/Container";
 import CharacterCard from "./components/CharacterCard";
 
-import {CHARACTER} from './heroesData';
+import { CHARACTER } from "./heroesData";
 
 import s from "./App.module.scss";
 
 const App = () => {
   const [character, setCharacter] = useState(CHARACTER);
   const handleLikeClick = (id) => {
-    console.log('like ', id)
-  }
+    const newCharacterArr = character.map((item) =>
+      item.id === id ? { ...item, isLike: !item.isLike } : item
+    );
+    setCharacter(newCharacterArr);
+  };
 
   return (
     <>
