@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Header } from "./components/Header";
 import { Slider } from "./components/Slider";
 import { Footer } from "./components/Footer";
@@ -10,6 +11,11 @@ import {CHARACTER} from './heroesData';
 import s from "./App.module.scss";
 
 const App = () => {
+  const [character, setCharacter] = useState(CHARACTER);
+  const handleLikeClick = (id) => {
+    console.log('like ', id)
+  }
+
   return (
     <>
       <Header />
@@ -23,7 +29,7 @@ const App = () => {
             <Heading level={2}>Collect your best five</Heading>
           </div>
           <div className={s.cardWrap}>
-            {CHARACTER.map((item) => (
+            {character.map((item) => (
               <div key={item.id}>
                 <CharacterCard
                   id={item.id}
@@ -31,6 +37,8 @@ const App = () => {
                   name={item.name}
                   humanName={item.humanName}
                   description={item.description}
+                  isLike={item.isLike}
+                  onLikeClick={handleLikeClick}
                 />
               </div>
             ))}
