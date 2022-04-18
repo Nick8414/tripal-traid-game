@@ -5,6 +5,8 @@ import Heading from "./components/Heading/Heading";
 import Container from "./components/Container";
 import CharacterCard from "./components/CharacterCard";
 
+import {CHARACTER} from './heroesData';
+
 import s from "./App.module.scss";
 
 const App = () => {
@@ -21,15 +23,17 @@ const App = () => {
             <Heading level={2}>Collect your best five</Heading>
           </div>
           <div className={s.cardWrap}>
-            <div>
-              <CharacterCard />
-            </div>
-            <div>
-              <CharacterCard />
-            </div>
-            <div>
-              <CharacterCard />
-            </div>
+            {CHARACTER.map((item) => (
+              <div key={item.id}>
+                <CharacterCard
+                  id={item.id}
+                  src={item.thumbnail.path}
+                  name={item.name}
+                  humanName={item.humanName}
+                  description={item.description}
+                />
+              </div>
+            ))}
           </div>
         </Container>
       </section>

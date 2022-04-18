@@ -15,7 +15,7 @@ export const Header = () => {
 						<img src={logo} alt="Logo" />
 					</div>
 					<ul className={s.nav}>
-						{ MENU.map(item => <li><a href="#">{item}</a></li>)}
+						{ MENU.map(item => <li key={item}><a href="#">{item}</a></li>)}
 					</ul>
 				</Container>
 			</div>
