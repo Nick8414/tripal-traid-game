@@ -16,10 +16,14 @@ export default function CharacterCard({
   description,
   isLike,
   onLikeClick,
+  onBioClick
 }) {
   const handleClick = () => {
     onLikeClick(id);
   };
+  const handleBioClick = () => {
+    onBioClick(id)
+  }
   return (
     <div className={s.root}>
       <img src={src} alt={name} className={s.cardImage} />
@@ -41,7 +45,7 @@ export default function CharacterCard({
             <Like />
           </div>
           <div className={s.readBio}>
-            <a href="#">Read bio</a>
+            <a href="#" onClick={handleBioClick}>Read bio</a>
           </div>
         </div>
       </div>
