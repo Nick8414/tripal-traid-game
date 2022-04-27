@@ -7,11 +7,15 @@ import Container from "../../components/Container";
 import Text from "../../components/Text";
 import Heading from "../../components/Heading";
 
-import { BIO } from "./bioData";
+import { BIO } from "../../constants/bioData";
 
 import s from "./Biography.module.scss";
 
 const Biography = ({ id, onBackClick }) => {
+  const handleBackClick = () => {
+    onBackClick && onBackClick();
+  }
+
   const character = BIO[id];
 
   const dataForRender = character.map((character) => {
@@ -25,7 +29,7 @@ const Biography = ({ id, onBackClick }) => {
       case "img":
         return <img className={s.image} src={character.src} alt="hero" />;
       default:
-        return <Heading level={1}>Helow old</Heading>;
+        return <Text> {character.text} </Text>;
     }
   });
 
@@ -33,7 +37,7 @@ const Biography = ({ id, onBackClick }) => {
     <div className={s.root}>
       <Container>
 				<div className={s.buttonContainer}>
-					 <Button white onClick={onBackClick}>
+					 <Button color="black" onClick={handleBackClick}>
           Go Back
         </Button>
 				</div>

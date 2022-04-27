@@ -4,15 +4,13 @@ import cn from "classnames";
 
 import s from "./Button.module.scss";
 
-const Button = ({ children, className, white, onClick }) => {
+const Button = ({ children, className, color, onClick }) => {
   const handleClick = () => {
-    onClick();
+    onClick && onClick();
   };
   return (
     <button
-      className={cn(s.button, className, {
-        [s.white]: white,
-      })}
+      className={cn(s.root, className, s[color])}
       onClick={handleClick}
     >
       {children}
@@ -22,14 +20,14 @@ const Button = ({ children, className, white, onClick }) => {
 
 Button.defaultProps = {
 	children: 'Button',
-	white: false,
+	color: 'default',
 }
 
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   onButtonClick: PropTypes.func,
-	white: PropTypes.bool,
+	color: PropTypes.oneOf(['default', 'black']),
 };
 
 export default Button;

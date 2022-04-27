@@ -19,10 +19,10 @@ export default function CharacterCard({
   onBioClick
 }) {
   const handleClick = () => {
-    onLikeClick(id);
+    onLikeClick && onLikeClick(id);
   };
   const handleBioClick = () => {
-    onBioClick(id)
+    onBioClick && onBioClick(id)
   }
   return (
     <div className={s.root}>
@@ -65,4 +65,5 @@ CharacterCard.propTypes = {
   description: PropTypes.string,
   isLike: PropTypes.bool,
   onLikeClick: PropTypes.func,
+  onBioClick: PropTypes.func,
 };

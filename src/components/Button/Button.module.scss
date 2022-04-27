@@ -1,4 +1,4 @@
-.button {
+.root {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,19 +10,26 @@
   font-size: 20px;
   transition: background 0.15s linear;
 
-	&.white {
-		color: #000000d9;
-		border: 1px solid #000000d9;
-		background-color: #ffffff;
-
-		&:hover {
-			background: #eee;
-			cursor: pointer;
-		}
-	}
-
 	&:hover { 
 		background: rgba(255, 255, 255, 0.1);
 		cursor: pointer;
+	}
+}
+
+.default {
+	color: #ffffff;
+  border: 1px solid white;
+
+	&:hover { 
+		background: rgba(255, 255, 255, 0.1);
+	}
+}
+
+.black {
+	color: #000;
+  border: 1px solid #000;
+
+	&:hover { 
+		background: rgba(0, 0, 0, 0.1);
 	}
 }

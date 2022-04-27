@@ -1,3 +1,4 @@
+import Button from "../Button";
 import Container from "../Container";
 import Heading from '../Heading';
 
@@ -15,7 +16,7 @@ export const Slider = () => {
             Wow.Wow.Wow
           </Heading>
           <div className={s.call}>
-            <button className={s.button}>Wow</button>
+            <Button>Wow</Button>
           </div>
         </Container>
       </div>
