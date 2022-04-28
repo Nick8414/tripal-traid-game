@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from 'react-router-dom';
 
 import PropTypes from "prop-types";
 
@@ -11,36 +12,33 @@ import { BIO } from "../../constants/bioData";
 
 import s from "./Biography.module.scss";
 
-const Biography = ({ id, onBackClick }) => {
-  const handleBackClick = () => {
-    onBackClick && onBackClick();
-  }
-
+const Biography = () => {
+  const {id} = useParams();
   const character = BIO[id];
 
-  const dataForRender = character.map((character) => {
+  const dataForRender = character.map((character, index) => {
     switch (character.type) {
       case "h1":
-        return <Heading level={1}>{character.text}</Heading>;
+        return <Heading key={index} level={1}>{character.text}</Heading>;
       case "h2":
-        return <Heading level={2}>{character.text}</Heading>;
+        return <Heading key={index} level={2}>{character.text}</Heading>;
       case "paragraph":
-        return <Text element="p">{character.text}</Text>;
+        return <Text key={index} element="p">{character.text}</Text>;
       case "img":
-        return <img className={s.image} src={character.src} alt="hero" />;
+        return <img className={s.image} key={index} src={character.src} alt="hero" />;
       default:
-        return <Text> {character.text} </Text>;
+        return <Text key={index}> {character.text} </Text>;
     }
   });
 
   return (
     <div className={s.root}>
       <Container>
-				<div className={s.buttonContainer}>
+				{/* <div className={s.buttonContainer}>
 					 <Button color="black" onClick={handleBackClick}>
           Go Back
         </Button>
-				</div>
+				</div> */}
        
         {dataForRender.map((item) => item)}
       </Container>
@@ -48,13 +46,12 @@ const Biography = ({ id, onBackClick }) => {
   );
 };
 
-Biography.defaultProps = {
-  id: null,
-};
+// Biography.defaultProps = {
+//   id: null,
+// };
 
-Biography.propTypes = {
-  id: PropTypes.number,
-  onBackClick: PropTypes.func,
-};
+// Biography.propTypes = {
+//   onBackClick: PropTypes.func,
+// };
 
 export default Biography;
