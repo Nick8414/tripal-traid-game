@@ -42,7 +42,7 @@ const Biography = ({ id, onBackClick }) => {
         </Button>
 				</div>
        
-        {dataForRender.map((item) => item)}
+        {dataForRender}
       </Container>
     </div>
   );
