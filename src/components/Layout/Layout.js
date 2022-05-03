@@ -11,11 +11,18 @@ import s from "./Layout.module.scss";
 const Layout = () => {
   const match = useMatch({ path: "/" });
   const location = useLocation();
-  useEffect(()=>{
-    window.scrollTo({
-      top: 0,
-      behavior: 'auto',
-  });
+  useEffect(() => {
+    console.log(location);
+
+    if (location.hash === "") {
+      window.scrollTo({
+        top: 0,
+        behavior: "auto",
+      });
+    } else {
+      const element = document.querySelector(location.hash);
+      element.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
   }, [location.pathname]);
 
   return (

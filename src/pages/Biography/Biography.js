@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 import Container from "../../components/Container";
 import Text from "../../components/Text";
 import Heading from "../../components/Heading";
+import AnchorLink from "../../components/AnchorLink";
 
 import { BIO } from "../../constants/bioData";
 
@@ -35,6 +36,9 @@ const Biography = () => {
         return (
           <Heading key={index} level={2}>
             {character.text}
+            <AnchorLink 
+              anchorName={character.text}
+            />
           </Heading>
         );
       case "paragraph":
