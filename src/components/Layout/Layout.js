@@ -1,15 +1,42 @@
 import React from "react";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useMatch, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
+import Container from "../../components/Container";
 
+import s from "./Layout.module.scss";
 
-const Layout = ({ children }) => {
+const Layout = () => {
+  const match = useMatch({ path: "/" });
+  const location = useLocation();
+  useEffect(() => {
+    console.log(location);
+
+    if (location.hash === "") {
+      window.scrollTo({
+        top: 0,
+        behavior: "auto",
+      });
+    } else {
+      const element = document.querySelector(location.hash);
+      element.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  }, [location.pathname]);
+
   return (
     <>
       <Header />
-				<Outlet />
+      {match !== null ? (
+        <Outlet />
+      ) : (
+        <div className={s.container}>
+          <Container>
+            <Outlet />
+          </Container>
+        </div>
+      )}
       <Footer />
     </>
   );

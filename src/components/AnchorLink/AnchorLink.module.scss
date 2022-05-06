@@ -1,0 +1,15 @@
+.root {
+	display: inline-block;
+	margin-inline-start: 10px;
+	opacity: 0;
+	cursor: pointer;
+
+	&:hover  {
+		opacity: 1;
+	} 
+
+	svg {
+		width: 20px;
+		height: 20px;
+	}
+}
