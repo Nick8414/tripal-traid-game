@@ -21,11 +21,8 @@ export const Header = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY > 60) {
-        setSmall(true);
-      } else {
-        setSmall(false);
-      }
+      setSmall(window.scrollY > 60);
+      
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
