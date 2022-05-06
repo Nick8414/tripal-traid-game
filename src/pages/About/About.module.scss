@@ -1,0 +1,24 @@
+.root {
+  padding: 30px;
+  height: 75vh;
+	line-height: 1.2;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(40, 180, 133, 0.9),
+      rgba(40, 180, 133, 0.7)
+    ),
+    url("../../assets/marvel-heroes.jpg");
+  background-size: cover;
+  background-position: top;
+
+  clip-path: polygon(0 0, 100% 0, 100% 55vh, 0 100%);
+  .aboutHeading {
+    text-align: center;
+		color: #fff;
+  }
+  p {
+    text-indent: 40px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+}
