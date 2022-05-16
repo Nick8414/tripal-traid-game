@@ -27,7 +27,7 @@ Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   onClick: PropTypes.func,
-	color: PropTypes.oneOf(['default', 'black']),
+	color: PropTypes.oneOf(['default', 'black', 'red']),
 };
 
 export default Button;
