@@ -10,10 +10,9 @@ import s from "./Layout.module.scss";
 
 const Layout = () => {
   const match = useMatch({ path: "/" });
+  const loginMatch = useMatch({ path: "/login" });
   const location = useLocation();
   useEffect(() => {
-    console.log(location);
-
     if (location.hash === "") {
       window.scrollTo({
         top: 0,
@@ -26,8 +25,8 @@ const Layout = () => {
   }, [location.pathname]);
 
   return (
-    <>
-      <Header />
+    <div className={s.layout}>
+      {!loginMatch && <Header />}
       {match !== null ? (
         <Outlet />
       ) : (
@@ -38,7 +37,7 @@ const Layout = () => {
         </div>
       )}
       <Footer />
-    </>
+    </div>
   );
 };
 
