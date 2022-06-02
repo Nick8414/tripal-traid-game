@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import Container from "../../components/Container";
 import Heading from "../../components/Heading";
@@ -6,18 +6,10 @@ import CharacterCard from "../../components/CharacterCard";
 
 import s from "./Characters.module.scss";
 
-import { CHARACTER } from "../../constants/heroesData";
+import { CharactersContext } from "../../context/charactersContetxt";
 
 const Characters = () => {
-
-	const [character, setCharacter] = useState(CHARACTER);
-
-	const handleLikeClick = (id) => {
-    const newCharacterArr = character.map((item) =>
-      item.id === id ? { ...item, isLike: !item.isLike } : item
-    );
-    setCharacter(newCharacterArr);
-  };
+  const { characters, onLikeClick } = useContext(CharactersContext);
 
   return (
     <section className={s.cardSection}>
@@ -29,7 +21,7 @@ const Characters = () => {
           <Heading level={2}>Collect your best five</Heading>
         </div>
         <div className={s.cardWrap}>
-          {character.map((item) => (
+          {characters.map((item) => (
             <div key={item.id}>
               <CharacterCard
                 id={item.id}
@@ -38,7 +30,7 @@ const Characters = () => {
                 humanName={item.humanName}
                 description={item.description}
                 isLike={item.isLike}
-                onLikeClick={handleLikeClick}
+                onLikeClick={onLikeClick}
               />
             </div>
           ))}

@@ -1,22 +1,15 @@
-import { useState } from "react";
+import {  useContext } from "react";
 import { Slider } from "../../components/Slider";
 import Heading from "../../components/Heading";
 import Container from "../../components/Container";
 import CharacterCard from "../../components/CharacterCard";
 
-import { CHARACTER } from "../../constants/heroesData";
+import { CharactersContext } from "../../context/charactersContetxt";
 
 import s from "./Main.module.scss";
 
 const Main = () => {
-	const [character, setCharacter] = useState(CHARACTER);
-
-	const handleLikeClick = (id) => {
-    const newCharacterArr = character.map((item) =>
-      item.id === id ? { ...item, isLike: !item.isLike } : item
-    );
-    setCharacter(newCharacterArr);
-  };
+  const { characters, onLikeClick } = useContext(CharactersContext);
 
   return (
     <>
@@ -30,7 +23,7 @@ const Main = () => {
             <Heading level={2}>Collect your best five</Heading>
           </div>
           <div className={s.cardWrap}>
-            {character.map((item) => (
+            {characters.map((item) => (
               <div key={item.id}>
                 <CharacterCard
                   id={item.id}
@@ -39,7 +32,7 @@ const Main = () => {
                   humanName={item.humanName}
                   description={item.description}
                   isLike={item.isLike}
-                  onLikeClick={handleLikeClick}
+                  onLikeClick={onLikeClick}
                 />
               </div>
             ))}
